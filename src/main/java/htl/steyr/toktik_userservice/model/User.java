@@ -52,6 +52,13 @@ public class User {
     private String lastName;
 
     /**
+     * The biography of the user.
+     * Is optional.
+     */
+    @Column()
+    private String biography;
+
+    /**
      * The birthday of the user.
      * This is used to calculate the age of the user.
      * The age of the user is not stored in the database.
