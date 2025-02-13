@@ -1,4 +1,4 @@
-package com.example.toktik_userservice.model;
+package htl.steyr.toktik_userservice.model;
 
 /**
  * Enum representing gender of a user

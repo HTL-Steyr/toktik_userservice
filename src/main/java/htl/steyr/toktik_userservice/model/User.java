@@ -1,4 +1,4 @@
-package com.example.toktik_userservice.model;
+package htl.steyr.toktik_userservice.model;
 
 import jakarta.persistence.*;
 import lombok.*;

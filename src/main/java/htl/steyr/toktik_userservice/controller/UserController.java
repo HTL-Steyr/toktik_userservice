@@ -1,6 +1,6 @@
-package com.example.toktik_userservice.controller;
+package htl.steyr.toktik_userservice.controller;
 
-import com.example.toktik_userservice.service.UserService;
+import htl.steyr.toktik_userservice.service.UserService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

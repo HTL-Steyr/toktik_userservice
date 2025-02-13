@@ -1,6 +1,6 @@
-package com.example.toktik_userservice.service;
+package htl.steyr.toktik_userservice.service;
 
-import com.example.toktik_userservice.repository.UserRepository;
+import htl.steyr.toktik_userservice.repository.UserRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

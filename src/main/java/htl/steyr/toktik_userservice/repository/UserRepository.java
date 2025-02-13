@@ -1,6 +1,6 @@
-package com.example.toktik_userservice.repository;
+package htl.steyr.toktik_userservice.repository;
 
-import com.example.toktik_userservice.model.User;
+import htl.steyr.toktik_userservice.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

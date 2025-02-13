@@ -1,4 +1,4 @@
-package com.example.toktik_userservice;
+package htl.steyr.toktik_userservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
