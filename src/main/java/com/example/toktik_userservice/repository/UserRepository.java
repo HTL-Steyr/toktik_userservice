@@ -1,4 +1,9 @@
 package com.example.toktik_userservice.repository;
 
-public interface UserRepository {
+import com.example.toktik_userservice.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.UUID;
+
+public interface UserRepository extends JpaRepository<User, UUID> {
 }
