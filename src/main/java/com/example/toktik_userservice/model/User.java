@@ -36,5 +36,9 @@ public class User {
     @NonNull
     private String email;
 
-    // TODO: rest of attributes
+    @NonNull
+    private String gender;
+
+    @NonNull
+    private String password;
 }
