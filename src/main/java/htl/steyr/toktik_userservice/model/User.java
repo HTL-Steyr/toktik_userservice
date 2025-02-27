@@ -122,7 +122,4 @@ public class User {
 
     @Column(nullable = false)
     private LocalDate birthday;
-
-    @Column(nullable = false)
-    private Instant createdAt = Instant.now();
 }

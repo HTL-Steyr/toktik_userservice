@@ -43,6 +43,6 @@ public class UserService {
 
     public UserProfile getProfile(String username) {
         User user = userRepository.findByUsername(username);
-        return new UserProfile(user.getId(), user.getUsername(), user.getEmail(), user.getBirthday(), user.getCreatedAt());
+        return new UserProfile(user.getId(), user.getUsername(), user.getEmail(), user.getBirthday());
     }
 }

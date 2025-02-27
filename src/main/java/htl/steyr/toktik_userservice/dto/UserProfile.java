@@ -4,4 +4,4 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public record UserProfile(UUID id, String username, String email, LocalDate birthday, Instant createdAt) {}
+public record UserProfile(UUID id, String username, String email, LocalDate birthday) {}

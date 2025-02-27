@@ -18,7 +18,6 @@ import java.util.UUID;
  * @param birthday  LocalDate containing the birthday
  * @param email     String containing the email
  * @param gender    Enum value containing the gender
- * @param createdAt Instant containing the creation date
  *
  * @see User
  * @see UserRequestDTO
@@ -31,7 +30,6 @@ public record UserResponseDTO(
         String lastName,
         LocalDate birthday,
         String email,
-        Gender gender,
-        Instant createdAt
+        Gender gender
 ) {
 }

@@ -24,13 +24,24 @@ public class SecurityConfig {
         return config.getAuthenticationManager();
     }
 
+    //    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        http
+//                .csrf(csrf -> csrf.disable())
+//                .authorizeHttpRequests(auth -> auth
+//                        .requestMatchers("/api/v1/auth/signup", "/api/v1/auth/login").permitAll()
+//                        .anyRequest().authenticated())
+//                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+//        return http.build();
+//    }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/auth/signup", "/api/v1/auth/login").permitAll()
-                        .anyRequest().authenticated())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+        http
+                .csrf(AbstractHttpConfigurer::disable)  // Disable CSRF
+                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())  // Allow all requests
+                .formLogin(AbstractHttpConfigurer::disable)  // Disable login form
+                .httpBasic(AbstractHttpConfigurer::disable);  // Disable HTTP Basic auth
+
         return http.build();
     }
 }
