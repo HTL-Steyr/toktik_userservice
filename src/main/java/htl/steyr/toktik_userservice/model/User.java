@@ -18,7 +18,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString(exclude = "password")
+@ToString
 @Table(name = "user")
 public class User {
     /**

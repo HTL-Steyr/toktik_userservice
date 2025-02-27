@@ -9,5 +9,5 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserService {
     @NonNull
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 }
