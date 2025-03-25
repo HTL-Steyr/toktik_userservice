@@ -3,10 +3,8 @@ package htl.steyr.toktik_userservice.service;
 import htl.steyr.toktik_userservice.dto.AuthResponse;
 import htl.steyr.toktik_userservice.dto.LoginRequest;
 import htl.steyr.toktik_userservice.dto.SignupRequest;
-import htl.steyr.toktik_userservice.dto.UserProfile;
 import htl.steyr.toktik_userservice.model.User;
 import htl.steyr.toktik_userservice.repository.UserRepository;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -41,8 +39,7 @@ public class UserService {
         return new AuthResponse(token);
     }
 
-    public UserProfile getProfile(String username) {
-        User user = userRepository.findByUsername(username);
-        return new UserProfile(user.getId(), user.getUsername(), user.getEmail(), user.getBirthday());
+    public boolean verifyUser(String token) {
+        return jwtService.isValid(token);
     }
 }

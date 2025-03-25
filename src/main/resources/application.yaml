@@ -1,6 +1,6 @@
 spring:
   application:
-    name: userservice
+    name: user-service
   datasource:
     url: jdbc:postgresql://localhost:5432/toktik_user
     username: toktik_user
@@ -10,10 +10,11 @@ spring:
       ddl-auto: update
 
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
-#      defaultZone: http://192.168.97.28:8761/eureka
+      defaultZone: http://10.52.84.18:8761/eureka
 
 server:
   port: 8123

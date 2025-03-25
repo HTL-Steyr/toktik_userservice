@@ -24,8 +24,13 @@ class AuthController {
         return userService.login(request);
     }
 
-    @GetMapping("/me")
-    public UserProfile getProfile(@RequestHeader("Authorization") String token) {
-        return userService.getProfile(token);
+//    @GetMapping("/me/{uuid}")
+//    public UserProfile getProfile(@RequestHeader("Authorization") String token) {
+//        return userService.getProfile(token);
+//    }
+
+    @GetMapping("/{token}")
+    public boolean isAuth(@PathVariable String token){
+        return userService.verifyUser(token);
     }
 }

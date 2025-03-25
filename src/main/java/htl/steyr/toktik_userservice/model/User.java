@@ -122,4 +122,7 @@ public class User {
 
     @Column(nullable = false)
     private LocalDate birthday;
+
+    @Column(nullable = false)
+    private String token;
 }

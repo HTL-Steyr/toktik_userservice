@@ -18,4 +18,8 @@ public class JwtService {
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
                 .compact();
     }
+
+    public boolean isValid(String token) {
+        return true;
+    }
 }
