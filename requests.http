@@ -4,8 +4,11 @@ Content-Type: application/json
 
 {
   "username": "testuser",
+  "firstname": "test",
+  "lastname" : "user",
+  "gender" : "FEMALE",
   "email": "testuser@example.com",
-  "password": "securepassword",
+  "password": "test",
   "birthday": "1995-06-15"
 }
 

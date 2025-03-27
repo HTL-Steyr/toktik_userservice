@@ -12,6 +12,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.UUID;
 
 /**
@@ -36,9 +38,13 @@ public class UserService {
     public AuthResponse signup(SignupRequest request) {
         User user = User.builder()
                 .username(request.username())
+                .firstName(request.firstname())
+                .lastName(request.lastname())
+                .gender(request.gender())
                 .email(request.email())
                 .password(passwordEncoder.encode(request.password()))
                 .birthday(request.birthday())
+                .createdAt(Instant.now())
                 .build();
         userRepository.save(user);
         String token = jwtService.generateToken(user);
