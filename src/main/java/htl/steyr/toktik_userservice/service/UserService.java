@@ -11,6 +11,11 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service class for user authentication and management.
+ * <p>
+ * This service handles user signup, login, and token verification.
+ */
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -19,6 +24,12 @@ public class UserService {
     private final JwtService jwtService;
     private final AuthenticationManager authManager;
 
+    /**
+     * Signs up a new user and generates a JWT token.
+     *
+     * @param request the signup request containing user details
+     * @return an AuthResponse containing the generated JWT token
+     */
     public AuthResponse signup(SignupRequest request) {
         User user = User.builder()
                 .username(request.username())
@@ -31,6 +42,12 @@ public class UserService {
         return new AuthResponse(token);
     }
 
+    /**
+     * Logs in a user and generates a JWT token.
+     *
+     * @param request the login request containing username or email and password
+     * @return an AuthResponse containing the generated JWT token
+     */
     public AuthResponse login(LoginRequest request) {
         authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.usernameOrEmail(), request.password()));
@@ -39,6 +56,12 @@ public class UserService {
         return new AuthResponse(token);
     }
 
+    /**
+     * Verifies the JWT token for user authentication.
+     *
+     * @param token the JWT token to verify
+     * @return true if the token is valid, false otherwise
+     */
     public boolean verifyUser(String token) {
         return jwtService.isValid(token);
     }
