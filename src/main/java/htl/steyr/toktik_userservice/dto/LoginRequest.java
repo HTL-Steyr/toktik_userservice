@@ -1,3 +1,5 @@
 package htl.steyr.toktik_userservice.dto;
 
-public record LoginRequest(String usernameOrEmail, String password) {}
+import jakarta.annotation.Nullable;
+
+public record LoginRequest(@Nullable String username, @Nullable String email, String password) {}

@@ -46,8 +46,12 @@ public class UserService {
                 .birthday(request.birthday())
                 .createdAt(Instant.now())
                 .build();
-        userRepository.save(user);
+
         String token = jwtService.generateToken(user);
+        user.setToken(token);
+        userRepository.save(user);
+
+
         return new AuthResponse(token);
     }
 
@@ -58,9 +62,17 @@ public class UserService {
      * @return an AuthResponse containing the generated JWT token
      */
     public AuthResponse login(LoginRequest request) {
-        authManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.usernameOrEmail(), request.password()));
-        User user = userRepository.findByUsername(request.usernameOrEmail());
+        if(request.username() != null){
+            authManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(request.username(), request.password()));
+        }else if(request.email() != null){
+            authManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(request.email(), request.password()));
+        }else{
+            return null;
+        }
+
+        User user = userRepository.findByUsernameOrEmail(request.username(), request.email());
         String token = jwtService.generateToken(user);
         return new AuthResponse(token);
     }
