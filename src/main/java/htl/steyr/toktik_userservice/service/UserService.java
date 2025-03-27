@@ -75,9 +75,11 @@ public class UserService {
             return new UserProfile(
                     user.getId(),
                     user.getUsername(),
+                    user.getFirstName(),
+                    user.getLastName(),
+                    user.getGender(),
                     user.getEmail(),
-                    user.getBirthday()
-            );
+                    user.getBirthday());
         }
         return null;
     }
