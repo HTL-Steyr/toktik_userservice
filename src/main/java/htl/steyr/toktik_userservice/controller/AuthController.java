@@ -3,6 +3,7 @@ package htl.steyr.toktik_userservice.controller;
 import htl.steyr.toktik_userservice.dto.AuthResponse;
 import htl.steyr.toktik_userservice.dto.LoginRequest;
 import htl.steyr.toktik_userservice.dto.SignupRequest;
+import htl.steyr.toktik_userservice.dto.UserProfile;
 import htl.steyr.toktik_userservice.service.UserService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -26,10 +27,10 @@ class AuthController {
         return userService.login(request);
     }
 
-//    @GetMapping("/me/{uuid}")
-//    public UserProfile getProfile(@RequestHeader("Authorization") String token) {
-//        return userService.getProfile(token);
-//    }
+    @GetMapping("/me/{uuid}")
+    public UserProfile getProfile(@PathVariable("uuid") String uuid) {
+        return userService.getProfile(uuid);
+    }
 
     @GetMapping
     public boolean authenticate(@RequestHeader("Authorization") String token){
