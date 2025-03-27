@@ -62,13 +62,13 @@ public class UserService {
      * @return an AuthResponse containing the generated JWT token
      */
     public AuthResponse login(LoginRequest request) {
-        if(request.username() != null){
+        if (request.username() != null) {
             authManager.authenticate(
                     new UsernamePasswordAuthenticationToken(request.username(), request.password()));
-        }else if(request.email() != null){
+        } else if (request.email() != null) {
             authManager.authenticate(
                     new UsernamePasswordAuthenticationToken(request.email(), request.password()));
-        }else{
+        } else {
             return null;
         }
 
