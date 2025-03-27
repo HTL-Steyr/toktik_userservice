@@ -47,10 +47,10 @@ public class UserService {
                 .createdAt(Instant.now())
                 .build();
 
+        userRepository.save(user);
         String token = jwtService.generateToken(user);
         user.setToken(token);
         userRepository.save(user);
-
 
         return new AuthResponse(token);
     }

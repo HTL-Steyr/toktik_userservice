@@ -1,12 +1,12 @@
 ### Signup
-POST http://localhost:8123/api/v1/auth/signup
+POST http://localhost:8250/api/v1/auth/signup
 Content-Type: application/json
 
 {
-  "username": "testuser",
+  "username": "test",
   "firstname": "test",
   "lastname" : "user",
-  "gender" : "FEMALE",
+  "gender" : "MALE",
   "email": "testuser@example.com",
   "password": "test",
   "birthday": "1995-06-15"
@@ -21,6 +21,6 @@ Content-Type: application/json
   "password": "securepassword"
 }
 
-### Get Profile (Replace {{token}} with actual token from login response)
-GET http://localhost:8080/api/v1/auth/me
-Authorization: Bearer {{token}}
+### Get Profile with UUID
+GET http://localhost:8250/api/v1/auth/me/2cd94e9d-437d-4592-ae87-8852b66bd49c
+Accept: application/json
